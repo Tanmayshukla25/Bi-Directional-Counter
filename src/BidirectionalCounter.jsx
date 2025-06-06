@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-import "./App"
+import "./App";
 function BidirectionalCounter() {
   const [count, setCount] = useState(0);
   const [counterStart, setCounterStart] = useState(false);
@@ -39,20 +39,29 @@ function BidirectionalCounter() {
   };
 
   return (
-    <div >
+    <div>
       <h2>Bidirectional Counter</h2>
       <p>
-      
-         Running Direction: {direction === "up" ? <FaArrowUp /> : <FaArrowDown />}
+        Running Direction:{" "}
+        {direction === "up" ? <FaArrowUp /> : <FaArrowDown />}
       </p>
 
-      <p>status running:{direction === "up" ? "Up": "Down"}</p>
+      <p>status running:{direction === "up" ? "Up" : "Down"}</p>
       <h1>{count}</h1>
       <div>
-        <button onClick={reset} >
-          Reset
-        </button>
-        <button onClick={StartStopbtn} >
+        <button onClick={reset}>Reset</button>
+        <button
+          onClick={() => setCounterStart(!counterStart)}
+          style={{
+            backgroundColor: counterStart ? "red" : "green",
+            color: "white",
+            padding: "10px 20px",
+            border: "none",
+            borderRadius: "5px",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+        >
           {counterStart ? "Stop" : "Start"}
         </button>
       </div>
